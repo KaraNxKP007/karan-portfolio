@@ -33,12 +33,13 @@ const MoonCanvas = () => {
     scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.35, transparent: true, opacity: 0.35 })));
 
     const loader = new THREE.TextureLoader();
-    (loader as any).crossOrigin = "anonymous";
+    loader.setCrossOrigin("anonymous");
 
     loader.load(
       "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/planets/moon_1024.jpg",
       (moonTex: THREE.Texture) => {
-        (moonTex as any).encoding = (THREE as any).sRGBEncoding;
+        // FIXED: Replaced deprecated sRGBEncoding with modern colorSpace
+        moonTex.colorSpace = THREE.SRGBColorSpace;
         moonTex.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
 
         const moon = new THREE.Mesh(

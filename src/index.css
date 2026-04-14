@@ -1,16 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import "tailwindcss";
 
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   FORCE DARK — prevents white flash on mobile
+   ============================================ */
+html {
+  background-color: #050816 !important;
+}
+
+body {
+  margin: 0;
+  background-color: #050816 !important;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+#root {
+  background-color: #050816;
+  min-height: 100vh;
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
 
-/* Keep the rest of your custom gradients and scrollbar styling exactly the same below... */
+img, canvas, svg {
+  max-width: 100%;
+  display: block;
+}
 
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050816; }
+::-webkit-scrollbar-thumb { background: #915eff; border-radius: 10px; }
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
@@ -18,7 +56,6 @@
 }
 
 .violet-gradient {
-  background: #804dee;
   background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
 }
 
@@ -26,43 +63,76 @@
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
 }
 
-.orange-text-gradient {
-  background: linear-gradient(to top, #f12711, #f5af19);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ============================================
+   SCROLL BOUNCE ANIMATION
+   ============================================ */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-.green-text-gradient {
-  background: linear-gradient(to top, #11998e, #38ef7d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ============================================
+   NAVBAR RESPONSIVE
+   ============================================ */
+@media (min-width: 641px) {
+  .kp-mobile-btn { display: none !important; }
+}
+@media (max-width: 640px) {
+  .kp-desktop-nav { display: none !important; }
+  .kp-mobile-btn  { display: block !important; }
 }
 
-.blue-text-gradient {
-  background: linear-gradient(to top, #2f80ed, #56ccf2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ============================================
+   SECTION PADDING — tighter on mobile
+   ============================================ */
+@media (max-width: 640px) {
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
 }
 
-.pink-text-gradient {
-  background: linear-gradient(to top, #ec008c, #fc6767);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ============================================
+   ABOUT SKILLS GRID
+   ============================================ */
+@media (max-width: 480px) {
+  .skills-grid { gap: 20px !important; }
 }
 
-.black-gradient {
-  background: linear-gradient(to right, #434343, #000000);
+/* ============================================
+   EXPERIENCE TIMELINE
+   ============================================ */
+@media (max-width: 640px) {
+  .kp-timeline { padding-left: 24px !important; }
+  .kp-edu-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+  .kp-edu-score { text-align: left !important; }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #050816;
-}
-::-webkit-scrollbar-thumb {
-  background: #915eff;
-  border-radius: 10px;
+/* ============================================
+   PROJECTS GRID
+   ============================================ */
+@media (max-width: 640px) {
+  .kp-projects-grid { grid-template-columns: 1fr !important; }
 }
 
+/* ============================================
+   CONTACT GRID
+   ============================================ */
+@media (max-width: 768px) {
+  .kp-contact-grid { grid-template-columns: 1fr !important; }
+  .kp-moon-wrap    { height: 260px !important; }
+}
+
+/* ============================================
+   FOOTER GRID
+   ============================================ */
+@media (max-width: 768px) {
+  .kp-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}

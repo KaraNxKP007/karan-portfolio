@@ -49,9 +49,9 @@ const SkillBall = ({ name, color, iconUrl }: SkillBallProps) => {
 
     for (let i = 0; i < faceCount; i++) {
       const i3 = i * 3;
-      const ax = posAttr.getX(i3), ay = posAttr.getY(i3), az = posAttr.getZ(i3);
-      const bx = posAttr.getX(i3 + 1), by = posAttr.getY(i3 + 1), bz = posAttr.getZ(i3 + 1);
-      const cx = posAttr.getX(i3 + 2), cy = posAttr.getY(i3 + 2), cz = posAttr.getZ(i3 + 2);
+      const az = posAttr.getZ(i3);
+      const bz = posAttr.getZ(i3 + 1);
+      const cz = posAttr.getZ(i3 + 2);
       const centroidZ = (az + bz + cz) / 3;
       if (centroidZ > maxZ) { maxZ = centroidZ; frontFaceIndex = i; }
     }

@@ -1,0 +1,81 @@
+/* ============================================
+   RESPONSIVE ADDITIONS — paste at bottom of index.css
+   ============================================ */
+
+/* ---- Base mobile-first resets ---- */
+*, *::before, *::after { box-sizing: border-box; }
+img, canvas { max-width: 100%; }
+
+/* ---- Navbar ---- */
+@media (max-width: 640px) {
+  .kp-desktop-nav { display: none !important; }
+  .kp-mobile-btn  { display: block !important; }
+}
+
+/* ---- About / Skills ---- */
+@media (max-width: 480px) {
+  /* Info cards: 2 columns on small phones */
+  .about-cards {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  /* Skill balls: tighter on very small screens */
+  .skills-grid {
+    gap: 20px !important;
+  }
+}
+
+/* ---- Experience timeline ---- */
+@media (max-width: 640px) {
+  .kp-timeline {
+    padding-left: 24px !important;
+  }
+  .kp-timeline-dot {
+    left: -20px !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .kp-edu-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+  .kp-edu-score {
+    text-align: left !important;
+  }
+}
+
+/* ---- Projects ---- */
+@media (max-width: 640px) {
+  .kp-projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---- Contact ---- */
+@media (max-width: 768px) {
+  .kp-contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .kp-moon-wrap {
+    height: 260px !important;
+  }
+}
+
+/* ---- Footer ---- */
+@media (max-width: 768px) {
+  .kp-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+/* ---- Global section padding reduction on mobile ---- */
+@media (max-width: 640px) {
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ---- Prevent horizontal overflow ---- */
+body { overflow-x: hidden; }

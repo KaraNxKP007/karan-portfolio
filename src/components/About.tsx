@@ -1,22 +1,6 @@
 import { about } from "../constants";
-import SkillBall from "./SkillBall";
 
-// No external image URLs — all rendered via canvas.
-// Add new skills by adding an object to this array.
-const skillBalls = [
-  { name: "React.js",    color: "#61dafb", letter: "⚛"  },
-  { name: "JavaScript", color: "#f7df1e", letter: "JS" },
-  { name: "TypeScript", color: "#3178c6", letter: "TS" },
-  { name: "Node.js",    color: "#68a063", letter: "NJ" },
-  { name: "Python",     color: "#4b8bbe", letter: "Py" },
-  { name: "OpenCV",     color: "#5C3EE8", letter: "CV" },
-  { name: "PostgreSQL", color: "#336791", letter: "PG" },
-  { name: "Git",        color: "#f05032", letter: "⑂"  },
-  { name: "VS Code",    color: "#0078d7", letter: "VS" },
-  { name: "Tailwind",   color: "#06b6d4", letter: "TW" },
-  { name: "MySQL",      color: "#00758f", letter: "My" },
-  { name: "C++",        color: "#00599C", letter: "C+" },
-];
+// skill section has been removed
 
 const About = () => {
   return (
@@ -58,22 +42,6 @@ const About = () => {
           ))}
         </div>
 
-        {/* Skills section */}
-        <p style={{ color: "#aaa6c3", fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "8px" }}>
-          Tech Stack
-        </p>
-        <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "clamp(28px, 4vw, 50px)", marginBottom: "12px" }}>
-          Skills.
-        </h3>
-        <p style={{ color: "#6b6a85", fontSize: "14px", marginBottom: "48px" }}>
-          Drag the balls to spin them ✦
-        </p>
-
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "32px", justifyContent: "center" }}>
-          {skillBalls.map((s) => (
-            <SkillBall key={s.name} name={s.name} color={s.color} letter={s.letter} />
-          ))}
-        </div>
       </div>
     </section>
   );

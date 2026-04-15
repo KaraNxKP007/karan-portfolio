@@ -103,6 +103,7 @@ const Hero = () => {
         width: "100%",
         minHeight: "100vh",
         backgroundColor: "#050816",
+        colorScheme: "dark",
         overflow: "hidden",
         // Force dark on iOS Safari which ignores body bg sometimes
         WebkitTapHighlightColor: "transparent",

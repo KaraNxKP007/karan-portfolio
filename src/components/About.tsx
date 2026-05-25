@@ -20,7 +20,7 @@ const About = () => {
         {/* Info cards — remove or add objects here freely */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "16px", marginBottom: "80px" }}>
           {[
-            { label: "Degree",  value: "B.Tech Chemical Engg.", sub: "IIT Jodhpur",        accent: "#915EFF" },
+            { label: "Degree",  value: "B.Tech", sub: "IIT Jodhpur",        accent: "#915EFF" },
             { label: "CGPA",    value: "8.58 / 10",             sub: "Ranked 2nd in Dept.", accent: "#00cea8" },
             { label: "Batch",   value: "2022 – 2026",           sub: "2026 Graduate",       accent: "#f59e0b" },
             // To remove Location card just delete the line below:

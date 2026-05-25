@@ -103,7 +103,7 @@ const Experience = () => {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {[
-              { degree: "B.Tech — Chemical Engineering", institute: "Indian Institute of Technology Jodhpur", year: "2022 – 2026", score: "8.59 / 10 CGPA", highlight: false },
+              { degree: "B.Tech — Chemical Engineering", institute: "Indian Institute of Technology Jodhpur", year: "2022 – 2026", score: "8.58 / 10 CGPA", highlight: false },
               { degree: "Senior Secondary (XII) — RBSE", institute: "Vyas Public Sr. Sec. School, Bikaner", year: "2020 – 2021", score: "99.40%", highlight: false },
               { degree: "Secondary (X) — RBSE", institute: "Vyas Public Sr. Sec. School, Bikaner", year: "2018 – 2019", score: "94.17%", highlight: false },
             ].map((edu, i) => (

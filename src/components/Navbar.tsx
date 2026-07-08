@@ -84,14 +84,12 @@ const Navbar = () => {
           width: "50px",
           height: "50px",
           borderRadius: "10px",
-          background: "linear-gradient(135deg, #915EFF, #00cea8)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           color: "#ffffff",
           fontWeight: 900,
           fontSize: "13px",
-          boxShadow: "0 0 15px rgba(145,94,255,0.5)",
           flexShrink: 0,
           fontFamily: "Poppins, sans-serif",
           letterSpacing: "0.02em",
@@ -105,7 +103,6 @@ const Navbar = () => {
               height: "50px",
               borderRadius: "10px",
               objectFit: "cover",
-              boxShadow: "0 0 18px rgba(145,94,255,0.5)",
               flexShrink: 0,
             }} />
         </div>

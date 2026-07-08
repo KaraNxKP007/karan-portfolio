@@ -1,5 +1,6 @@
 import { about, navLinks } from "../constants";
 
+
 const Footer = () => {
   return (
     <footer style={{ backgroundColor: "#050816", borderTop: "1px solid rgba(145,94,255,0.15)", padding: "60px 24px 32px" }}>
@@ -37,7 +38,7 @@ const Footer = () => {
           </div>
 
           <a
-            href="https://drive.google.com/file/d/14dFWWLdHjXVkg2_CGV3cgvv53TS_TWtV/view?usp=drive_link"
+            href="/karanpratapResume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{

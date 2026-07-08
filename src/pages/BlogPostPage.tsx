@@ -4,6 +4,7 @@ import { useTheme, tokens } from "../context/ThemeContext";
 import { getPostBySlug } from "../utils/loadPosts";
 import ShareButtons from "../components/blog/ShareButtons";
 import LikeDislike from "../components/blog/LikeDislike";
+import ThemeSwitcher from "../components/blog/ThemeSwitcher";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -25,12 +26,17 @@ const BlogPostPage = () => {
       <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px" }}>
         <Link to="/blog" style={{ color: t.accent, fontSize: "13px", textDecoration: "none" }}>← Back to Journal</Link>
 
-        <h1 style={{ color: t.text, fontSize: "40px", fontWeight: 800, fontFamily: "Poppins, sans-serif", margin: "16px 0 8px" }}>
-          {post.title}
-        </h1>
-        <p style={{ color: t.textSub, fontSize: "14px", margin: 0 }}>
-          {post.author} · {new Date(post.date).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" })} · {post.readTime}
-        </p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "20px", marginTop: "16px" }}>
+          <div>
+            <h1 style={{ color: t.text, fontSize: "40px", fontWeight: 800, fontFamily: "Poppins, sans-serif", margin: "0 0 8px" }}>
+              {post.title}
+            </h1>
+            <p style={{ color: t.textSub, fontSize: "14px", margin: 0 }}>
+              {post.author} · {new Date(post.date).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" })} · {post.readTime}
+            </p>
+          </div>
+          <ThemeSwitcher />
+        </div>
 
         <ShareButtons title={post.title} />
         <LikeDislike slug={post.slug} />

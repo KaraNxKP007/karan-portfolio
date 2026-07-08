@@ -29,6 +29,7 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
 img, canvas, svg {

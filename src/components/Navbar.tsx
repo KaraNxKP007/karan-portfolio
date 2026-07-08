@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { navLinks, about } from "../constants";
 import { Link , useLocation } from "react-router-dom";
+import logo from "../assets/logo.png"
+import { useTheme, tokens } from "../context/ThemeContext";
+
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation()
+  const { theme } = useTheme();
+  const isBlogRoute = /^\/blog\/.+/.test(location.pathname);
+  const t = isBlogRoute ? tokens[theme] : tokens.dark;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -61,10 +67,10 @@ const Navbar = () => {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      backgroundColor: scrolled ? "rgba(5,8,22,0.96)" : "rgba(5,8,22,0.5)",
+      backgroundColor: scrolled ? t.navBg : t.navBg.replace("0.95)", "0.5)"),
       backdropFilter: "blur(12px)",
       WebkitBackdropFilter: "blur(12px)",
-      borderBottom: scrolled ? "1px solid rgba(145,94,255,0.18)" : "1px solid transparent",
+      borderBottom: scrolled ? `1px solid ${t.border}` : "1px solid transparent",
       boxSizing: "border-box",
     }}>
 
@@ -75,8 +81,8 @@ const Navbar = () => {
         style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}
       >
         <div style={{
-          width: "40px",
-          height: "40px",
+          width: "50px",
+          height: "50px",
           borderRadius: "10px",
           background: "linear-gradient(135deg, #915EFF, #00cea8)",
           display: "flex",
@@ -85,20 +91,30 @@ const Navbar = () => {
           color: "#ffffff",
           fontWeight: 900,
           fontSize: "13px",
-          boxShadow: "0 0 18px rgba(145,94,255,0.5)",
+          boxShadow: "0 0 15px rgba(145,94,255,0.5)",
           flexShrink: 0,
           fontFamily: "Poppins, sans-serif",
           letterSpacing: "0.02em",
           userSelect: "none",
         }}>
-          KPSR
+          <img
+            src={logo}
+            alt="Karan Pratap logo"
+            style={{
+              width: "50px",
+              height: "50px",
+              borderRadius: "10px",
+              objectFit: "cover",
+              boxShadow: "0 0 18px rgba(145,94,255,0.5)",
+              flexShrink: 0,
+            }} />
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ color: "#ffffff", fontWeight: 800, fontSize: "14px", lineHeight: 1.2, fontFamily: "Poppins, sans-serif" }}>
+          <span style={{ color: t.text, fontWeight: 800, fontSize: "18px", lineHeight: 1.2, fontFamily: "Poppins, sans-serif" }}>
             Karan Pratap
           </span>
-          <span style={{ color: "#915EFF", fontWeight: 500, fontSize: "10px", fontFamily: "Poppins, sans-serif" }}>
-            IIT Jodhpur Graduate
+          <span style={{ color: "#915EFF", fontWeight: 500, fontSize: "12px", fontFamily: "Poppins, sans-serif" }}>
+            IITJ'26 Graduate
           </span>
         </div>
       </a>
@@ -113,7 +129,7 @@ const Navbar = () => {
                 to={`/#${link.id}`}
                 onClick={() => setActive(link.title)}
                 style={{
-                  color: isActive ? "#ffffff" : "#aaa6c3",
+                  color: isActive ? t.text : t.textSub,
                   fontSize: "14px",
                   fontWeight: isActive ? 600 : 500,
                   textDecoration: "none",
@@ -145,7 +161,7 @@ const Navbar = () => {
             to="/blog"
             onClick={() => setActive("")}
             style={{
-              color: location.pathname.startsWith("/blog") ? "#ffffff" : "#aaa6c3",
+              color: location.pathname.startsWith("/blog") ? t.text : t.textSub,
               fontSize: "14px",
               fontWeight: location.pathname.startsWith("/blog") ? 600 : 500,
               textDecoration: "none",
@@ -206,9 +222,9 @@ const Navbar = () => {
         }}
       >
         <div style={{ width: "22px", display: "flex", flexDirection: "column", gap: "5px" }}>
-          <span style={{ display: "block", height: "2px", backgroundColor: "#ffffff", transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }} />
-          <span style={{ display: "block", height: "2px", backgroundColor: "#ffffff", transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
-          <span style={{ display: "block", height: "2px", backgroundColor: "#ffffff", transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }} />
+          <span style={{ display: "block", height: "2px", backgroundColor: t.text, transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }} />
+          <span style={{ display: "block", height: "2px", backgroundColor: t.text, transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: "block", height: "2px", backgroundColor: t.text, transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-7px)" : "none" }} />
         </div>
       </button>
 
@@ -219,8 +235,8 @@ const Navbar = () => {
           top: "100%",
           left: 0,
           right: 0,
-          backgroundColor: "rgba(5,8,22,0.98)",
-          borderBottom: "1px solid rgba(145,94,255,0.2)",
+          backgroundColor: t.navBg,
+          borderBottom: `1px solid ${t.border}`,
           padding: "20px",
           backdropFilter: "blur(14px)",
           WebkitBackdropFilter: "blur(14px)",
@@ -232,7 +248,7 @@ const Navbar = () => {
                 to={`/#${link.id}`}
                 onClick={() => { setActive(link.title); setMenuOpen(false); }}
                 style={{
-                  color: active === link.title ? "#915EFF" : "#aaa6c3",
+                  color: active === link.title ? "#915EFF" : t.textSub,
                   fontSize: "16px",
                   fontWeight: 500,
                   textDecoration: "none",
@@ -244,6 +260,23 @@ const Navbar = () => {
               </Link>
               </li>
             ))}
+
+            <li>
+                <Link
+                  to="/blog"
+                  onClick={() => { setActive(""); setMenuOpen(false); }}
+                  style={{
+                    color: location.pathname.startsWith("/blog") ? "#915EFF" : t.textSub,
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    textDecoration: "none",
+                    display: "block",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
+                  Blog
+                </Link>
+            </li>
             <li>
               <a
                 href={about.github}

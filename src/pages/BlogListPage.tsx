@@ -1,11 +1,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { useTheme, tokens } from "../context/ThemeContext";
+import { tokens } from "../context/ThemeContext";
 import { getAllPosts } from "../utils/loadPosts";
 
 const BlogListPage = () => {
-  const { theme } = useTheme();
-  const t = tokens[theme];
+  const t = tokens.dark;
   const posts = getAllPosts();
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");

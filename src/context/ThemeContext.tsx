@@ -1,15 +1,16 @@
-import { createContext, useContext, useState, useEffect} from "react";
-import type {ReactNode} from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import type { ReactNode } from "react";
 
-type Theme = "dark" | "light";
+type Theme = "dark" | "light" | "sepia";
 
 const ThemeContext = createContext<{
   theme: Theme;
   toggleTheme: () => void;
-}>({ theme: "dark", toggleTheme: () => {} });
+  setTheme: (t: Theme) => void;
+}>({ theme: "dark", toggleTheme: () => {}, setTheme: () => {} });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
+  const [theme, setThemeState] = useState<Theme>(() => {
     const saved = localStorage.getItem("kp-theme");
     return (saved as Theme) || "dark";
   });
@@ -19,10 +20,14 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  const toggleTheme = () => {
+    setThemeState((t) => (t === "dark" ? "light" : t === "light" ? "sepia" : "dark"));
+  };
+
+  const setTheme = (t: Theme) => setThemeState(t);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -30,7 +35,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useTheme = () => useContext(ThemeContext);
 
-// Color tokens for both themes
 export const tokens = {
   dark: {
     bg: "#050816",
@@ -55,6 +59,18 @@ export const tokens = {
     navBg: "rgba(240,238,255,0.95)",
     accent: "#7c3aed",
     accentAlt: "#059669",
+  },
+  sepia: {
+    bg: "#f4ecd8",
+    bgCard: "#ece0c4",
+    bgCard2: "#e8dab8",
+    border: "rgba(120,90,40,0.25)",
+    text: "#3a2f1c",
+    textSub: "#6b5a3a",
+    textMuted: "#8a7856",
+    navBg: "rgba(244,236,216,0.95)",
+    accent: "#9c6b1f",
+    accentAlt: "#6b7d3d",
   },
 };
 

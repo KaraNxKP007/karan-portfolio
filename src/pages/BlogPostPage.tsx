@@ -26,23 +26,22 @@ const BlogPostPage = () => {
       <div style={{ maxWidth: "760px", margin: "0 auto", padding: "0 24px" }}>
         <Link to="/blog" style={{ color: t.accent, fontSize: "13px", textDecoration: "none" }}>← Back to Journal</Link>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "20px", marginTop: "16px" }}>
-          <div>
-            <h1 style={{ color: t.text, fontSize: "40px", fontWeight: 800, fontFamily: "Poppins, sans-serif", margin: "0 0 8px" }}>
-              {post.title}
-            </h1>
-            <p style={{ color: t.textSub, fontSize: "14px", margin: 0 }}>
-              {post.author} · {new Date(post.date).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" })} · {post.readTime}
-            </p>
-          </div>
+        <div style={{ marginTop: "16px" }}>
+          <h1 style={{ color: t.text, fontSize: "40px", fontWeight: 800, fontFamily: "Poppins, sans-serif", margin: "0 0 8px" }}>
+            {post.title}
+          </h1>
+          <p style={{ color: t.textSub, fontSize: "14px", margin: 0 }}>
+            {post.author} · {new Date(post.date).toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" })} · {post.readTime}
+          </p>
+        </div>
+
+        <div className="blog-actions-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px", marginTop: "20px", flexWrap: "wrap" }}>
+          <ShareButtons title={post.title} />
           <ThemeSwitcher />
         </div>
 
-        <ShareButtons title={post.title} />
-        <LikeDislike slug={post.slug} />
-
         {post.heroImage && (
-          <img src={post.heroImage} alt={post.title} style={{ width: "100%", borderRadius: "14px", margin: "20px 0" }} />
+          <img src={post.heroImage} alt={post.title} className="blog-hero-img" style={{ width: "100%", borderRadius: "14px", margin: "20px 0", aspectRatio: "16 / 9", objectFit: "cover" }} />
         )}
 
         <div style={{ color: t.textSub, fontSize: "16px", lineHeight: 1.8, fontFamily: "Poppins, sans-serif" }}>
@@ -58,7 +57,28 @@ const BlogPostPage = () => {
             {post.content}
           </ReactMarkdown>
         </div>
+
+        <div style={{
+          textAlign: "center",
+          marginTop: "56px",
+          paddingTop: "36px",
+          borderTop: `1px solid ${t.border}`,
+        }}>
+          <p style={{
+            color: t.textMuted,
+            fontSize: "15px",
+            fontStyle: "italic",
+            fontFamily: "Poppins, sans-serif",
+            marginBottom: "20px",
+          }}>
+            "The best way to understand a system is to trace what happens at its boundaries."
+          </p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <LikeDislike slug={post.slug} />
+          </div>
+        </div>
       </div>
+      <style>{`@media (max-width: 640px) {h1 { font-size: 28px !important; }.blog-actions-row { justify-content: center !important; }.blog-hero-img { aspect-ratio: 4 / 3 !important; }`}</style>
     </div>
   );
 };

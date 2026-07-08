@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rathorekaran.site/sitemap.xml
+Sitemap: https://www.rathorekaran.site/sitemap.xml

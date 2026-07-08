@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { navLinks, about } from "../constants";
+import { Link , useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -36,6 +38,17 @@ const Navbar = () => {
       topObs.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+  if (location.pathname === "/" && location.hash) {
+    const id = location.hash.replace("#", "");
+    // slight delay ensures the Home page's sections have mounted
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  }
+  }, [location]);
 
   return (
     <nav style={{
@@ -93,11 +106,11 @@ const Navbar = () => {
       {/* Desktop nav */}
       <ul className="kp-desktop-nav" style={{ display: "flex", gap: "24px", listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}>
         {navLinks.map((link) => {
-          const isActive = active === link.title;
+          const isActive = location.pathname === "/" && active === link.title;
           return (
             <li key={link.id} style={{ position: "relative" }}>
-              <a
-                href={"#" + link.id}
+              <Link
+                to={`/#${link.id}`}
                 onClick={() => setActive(link.title)}
                 style={{
                   color: isActive ? "#ffffff" : "#aaa6c3",
@@ -111,7 +124,7 @@ const Navbar = () => {
                 }}
               >
                 {link.title}
-              </a>
+              </Link>
               <span style={{
                 position: "absolute",
                 bottom: 0, left: 0, right: 0,
@@ -125,6 +138,36 @@ const Navbar = () => {
             </li>
           );
         })}
+
+        {/* Blog link */}
+        <li style={{ position: "relative" }}>
+          <Link
+            to="/blog"
+            onClick={() => setActive("")}
+            style={{
+              color: location.pathname.startsWith("/blog") ? "#ffffff" : "#aaa6c3",
+              fontSize: "14px",
+              fontWeight: location.pathname.startsWith("/blog") ? 600 : 500,
+              textDecoration: "none",
+              paddingBottom: "4px",
+              display: "block",
+              fontFamily: "Poppins, sans-serif",
+            }}
+          >
+            Blog
+          </Link>
+          <span style={{
+            position: "absolute",
+            bottom: 0, left: 0, right: 0,
+            height: "2px",
+            background: "linear-gradient(90deg, #915EFF, #00cea8)",
+            borderRadius: "9999px",
+            transform: location.pathname.startsWith("/blog") ? "scaleX(1)" : "scaleX(0)",
+            transition: "transform 0.25s ease",
+            transformOrigin: "left",
+          }} />
+        </li>
+
         <li>
           <a
             href={about.github}
@@ -141,6 +184,7 @@ const Navbar = () => {
               boxShadow: "0 0 16px rgba(145,94,255,0.4)",
               fontFamily: "Poppins, sans-serif",
               whiteSpace: "nowrap",
+              display: "inline-block",
             }}
           >
             GitHub ↗
@@ -184,20 +228,20 @@ const Navbar = () => {
           <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "16px" }}>
             {navLinks.map((link) => (
               <li key={link.id}>
-                <a
-                  href={"#" + link.id}
-                  onClick={() => { setActive(link.title); setMenuOpen(false); }}
-                  style={{
-                    color: active === link.title ? "#915EFF" : "#aaa6c3",
-                    fontSize: "16px",
-                    fontWeight: 500,
-                    textDecoration: "none",
-                    display: "block",
-                    fontFamily: "Poppins, sans-serif",
-                  }}
-                >
-                  {link.title}
-                </a>
+              <Link
+                to={`/#${link.id}`}
+                onClick={() => { setActive(link.title); setMenuOpen(false); }}
+                style={{
+                  color: active === link.title ? "#915EFF" : "#aaa6c3",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                  display: "block",
+                  fontFamily: "Poppins, sans-serif",
+                }}
+              >
+                {link.title}
+              </Link>
               </li>
             ))}
             <li>

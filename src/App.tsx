@@ -1,24 +1,19 @@
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import Achievements from "./components/Achievements";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Competitions from "./components/Competitions";
+import Home from "./pages/Home";
+import BlogListPage from "./pages/BlogListPage";
+import BlogPostPage from "./pages/BlogPostPage";
 
 function App() {
   return (
     <div style={{ backgroundColor: "#050816", minHeight: "100vh" }}>
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Achievements />
-      <Competitions />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<BlogListPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+      </Routes>
       <Footer />
     </div>
   );

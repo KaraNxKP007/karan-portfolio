@@ -125,6 +125,7 @@ img, canvas, svg {
   .kp-moon-wrap    { height: 260px !important; }
 }
 
+
 /* ============================================
    FOOTER GRID
    ============================================ */
@@ -133,4 +134,28 @@ img, canvas, svg {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
   }
+}
+
+
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes kp-spin {
+  to { --angle: 360deg; }
+}
+
+.kp-border-spin {
+  animation: kp-spin 4s linear infinite;
+}
+
+.kp-input {
+  transition: border-color 0.2s;
+}
+.kp-input:focus {
+  border-color: #915EFF !important;
+  outline: none;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { about } from "../constants";
-import EarthCanvas from "./EarthCanvas";
+import { lazy, Suspense } from "react";
+const EarthCanvas = lazy(() => import("./EarthCanvas"));
 import * as THREE from "three";
 
 const ParticleField = () => {
@@ -177,7 +178,9 @@ const Hero = () => {
           {/* RIGHT — Earth (centered on mobile, beside text on desktop) */}
           <div className="hero-earth">
             <div className="hero-earth-inner">
+              <Suspense fallback={<div style={{ width: "100%", height: "100%" }} />}>
               <EarthCanvas />
+              </Suspense>
             </div>
           </div>
         </div>

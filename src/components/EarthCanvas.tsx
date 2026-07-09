@@ -82,7 +82,7 @@ const EarthCanvas = () => {
           });
         });
 
-      const BASE = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/planets/";
+      const BASE = "/textures/";
 
       Promise.all([
         loadTex(BASE + "earth_atmos_2048.jpg", THREE.sRGBEncoding),

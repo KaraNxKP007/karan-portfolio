@@ -1,7 +1,34 @@
 import { achievements } from "../constants";
+import {
+  FiTrendingUp, FiUsers, FiCode, FiAward, FiBookOpen, FiTarget,
+  FiStar, FiCompass, FiFlag, FiZap, FiLayers, FiGitBranch,
+} from "react-icons/fi";
+import type { IconType } from "react-icons";
 
-const icons = ["🏆", "🎓", "🧭", "💻"];
 const colors = ["#f59e0b", "#915EFF", "#00cea8", "#ec4899"];
+
+// Order matters — more specific rules should come first.
+const iconRules: { keywords: string[]; icon: IconType }[] = [
+  { keywords: ["rank", "top", "score", "cgpa", "percentile", "gpa"], icon: FiTrendingUp },
+  { keywords: ["developer head", "tech lead", "cto"], icon: FiGitBranch },
+  { keywords: ["coordinator"], icon: FiCompass },
+  { keywords: ["president", "captain", "founder"], icon: FiFlag },
+  { keywords: ["lead", "head", "chapter", "cell", "club", "society"], icon: FiUsers },
+  { keywords: ["developer", "engineer", "code", "built", "shipped"], icon: FiCode },
+  { keywords: ["award", "winner", "champion", "1st", "gold", "medal"], icon: FiAward },
+  { keywords: ["research", "paper", "publication", "course", "certification"], icon: FiBookOpen },
+  { keywords: ["hackathon", "competition", "challenge"], icon: FiTarget },
+  { keywords: ["scholarship", "fellowship", "grant"], icon: FiZap },
+  { keywords: ["project", "product", "platform"], icon: FiLayers },
+];
+
+const getIconFor = (title: string): IconType => {
+  const lower = title.toLowerCase();
+  for (const rule of iconRules) {
+    if (rule.keywords.some((k) => lower.includes(k))) return rule.icon;
+  }
+  return FiStar;
+};
 
 const Achievements = () => {
   return (
@@ -18,6 +45,7 @@ const Achievements = () => {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "24px" }}>
           {achievements.map((item, index) => {
             const color = colors[index % colors.length];
+            const Icon = getIconFor(item.title);
             return (
               <div key={index} style={{
                 background: "linear-gradient(135deg, #151030 0%, #1a1040 100%)",
@@ -39,10 +67,16 @@ const Achievements = () => {
                   el.style.borderColor = "rgba(145,94,255,0.15)";
                 }}
               >
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", backgroundColor: color }} />
                 <div style={{ position: "absolute", top: "-20px", right: "-20px", width: "100px", height: "100px", borderRadius: "50%", background: `radial-gradient(circle, ${color}20 0%, transparent 70%)`, pointerEvents: "none" }} />
 
-                <div style={{ fontSize: "36px", marginBottom: "16px" }}>{icons[index % icons.length]}</div>
+                <div style={{
+                  width: "44px", height: "44px", borderRadius: "12px",
+                  backgroundColor: `${color}15`, border: `1px solid ${color}30`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  marginBottom: "16px",
+                }}>
+                  <Icon size={20} color={color} />
+                </div>
 
                 <div style={{
                   position: "absolute",

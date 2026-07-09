@@ -25,18 +25,27 @@ const Experience = () => {
 
           {experiences.map((exp, index) => (
             <div key={index} style={{ position: "relative", marginBottom: index === experiences.length - 1 ? 0 : "40px" }}>
-              {/* Glowing dot */}
+              {/* Numbered timeline marker */}
               <div style={{
-                position: "absolute",
-                left: "-32px",
-                top: "28px",
-                width: "20px",
-                height: "20px",
-                borderRadius: "50%",
-                backgroundColor: exp.color,
-                boxShadow: `0 0 0 4px rgba(5,8,22,1), 0 0 20px ${exp.color}`,
-                zIndex: 1,
-              }} />
+                  position: "absolute",
+                  left: "-37px",
+                  top: "35px",
+                  width: "26px",
+                  height: "26px",
+                  borderRadius: "50%",
+                  backgroundColor: "#050816",
+                  border: `2px solid ${exp.color}`,
+                  boxShadow: `0 0 0 4px #050816`,
+                  color: exp.color,
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: 1,
+                }}>
+                  {index + 1}
+              </div>
 
               <div style={{
                 background: "linear-gradient(135deg, #151030 0%, #1a1040 100%)",
@@ -50,8 +59,6 @@ const Experience = () => {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = exp.color; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(145,94,255,0.2)"; }}
               >
-                {/* Top color bar */}
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", backgroundColor: exp.color, borderRadius: "24px 24px 0 0" }} />
 
                 {/* Glow bg */}
                 <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "150px", height: "150px", borderRadius: "50%", background: `radial-gradient(circle, ${exp.color}18 0%, transparent 70%)`, pointerEvents: "none" }} />

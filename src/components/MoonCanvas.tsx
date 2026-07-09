@@ -36,7 +36,7 @@ const MoonCanvas = () => {
     loader.setCrossOrigin("anonymous");
 
     loader.load(
-      "https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/textures/planets/moon_1024.jpg",
+      "/textures/moon_1024.jpg",
       (moonTex: THREE.Texture) => {
         // FIXED: Replaced deprecated sRGBEncoding with modern colorSpace
         moonTex.colorSpace = THREE.SRGBColorSpace;

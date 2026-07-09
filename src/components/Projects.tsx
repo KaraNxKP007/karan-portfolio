@@ -56,8 +56,6 @@ const Projects = () => {
                 el.style.boxShadow = "none";
               }}
             >
-              {/* Gradient top bar */}
-              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, #915EFF, #00cea8)" }} />
 
               {/* Subtle glow blob — bottom right, behind content */}
               <div style={{

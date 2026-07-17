@@ -38,10 +38,10 @@ const LikeDislike = ({ slug }: { slug: string }) => {
   return (
     <div style={{ display: "flex", gap: "10px", margin: "12px 0" }}>
       <button style={btnStyle(vote === "like")} onClick={() => handleVote("like")}>
-        <FaThumbsUp size={13} /> {counts.likes}
+        <FaThumbsUp size={13} />
       </button>
       <button style={btnStyle(vote === "dislike")} onClick={() => handleVote("dislike")}>
-        <FaThumbsDown size={13} /> {counts.dislikes}
+        <FaThumbsDown size={13} />
       </button>
     </div>
   );

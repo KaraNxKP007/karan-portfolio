@@ -1,23 +1,20 @@
 import { useState, useEffect } from "react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { useTheme, tokens } from "../../context/ThemeContext";
-import { getVote, getCounts, setVote } from "../../utils/likeStorage";
+import { getVote, setVote } from "../../utils/likeStorage";
 
 const LikeDislike = ({ slug }: { slug: string }) => {
   const { theme } = useTheme();
   const t = tokens[theme];
   const [vote, setLocalVote] = useState<"like" | "dislike" | null>(null);
-  const [counts, setCounts] = useState({ likes: 0, dislikes: 0 });
 
   useEffect(() => {
     setLocalVote(getVote(slug));
-    setCounts(getCounts(slug));
   }, [slug]);
 
   const handleVote = (v: "like" | "dislike") => {
     const result = setVote(slug, v);
     setLocalVote(result.vote);
-    setCounts(result.counts);
   };
 
   const btnStyle = (active: boolean) => ({

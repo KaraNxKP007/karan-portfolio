@@ -13,16 +13,16 @@ const About = () => {
         <h2 style={{ color: "#ffffff", fontWeight: 900, fontSize: "clamp(32px, 5vw, 60px)", marginBottom: "24px" }}>
           Overview.
         </h2>
-        <p style={{ color: "#aaa6c3", fontSize: "17px", maxWidth: "52rem", lineHeight: 1.85, marginBottom: "60px" }}>
+        <p style={{ color: "#aaa6c3", fontSize: "17px", maxWidth: "52rem", lineHeight: 1.85, marginBottom: "80px" }}>
           {about.bio}
         </p>
 
         {/* Info cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "16px", marginBottom: "80px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "16px", marginBottom: "60px" }}>
           {[
-            { label: "Degree", value: "B.Tech", sub: "IIT Jodhpur", accent: "#915EFF" },
-            { label: "CGPA", value: "8.58 / 10", sub: "Ranked 2nd in Dept.", accent: "#00cea8" },
-            { label: "Batch", value: "2022 – 2026", sub: "2026 Graduate", accent: "#f59e0b" },
+            { label: "ENGINEERING", value: "Product-Oriented", sub: "Build for real users, not just demos.", accent: "#915EFF" },
+            { label: "ARCHITECTURE", value: "End-to-End Thinking", sub: "Frontend, backend, data, and AI as one system.", accent: "#00cea8" },
+            { label: "BUILDING", value: "Production Mindset", sub: "Reliable, maintainable, and built to scale.", accent: "#f59e0b" },
           ].map((item) => (
             <div
               key={item.label}

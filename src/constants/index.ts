@@ -7,8 +7,8 @@ export const navLinks = [
 
 export const about = {
   name: "Karan Pratap Singh Rathore",
-  tagline: "Full-Stack Developer | GenAI | SDE",
-  bio: "Recent B.Tech graduate from IIT Jodhpur, currently preparing for software engineering roles with a strong focus on full-stack development, data structures & algorithms, and GenAI. Skilled in building end-to-end scalable applications — from modern frontend interfaces to robust backend systems and AI-driven tools. Experienced with React, TypeScript, system design, and machine learning, with a growing interest in agentic AI and autonomous systems. Passionate about solving real-world problems and building high-impact, reliable products.",
+  tagline: "Software Engineering | AI Engineering | Full-Stack Development",
+  bio: "IIT Jodhpur graduate building software products at the intersection of full-stack engineering and AI. My work focuses on turning ideas into production-ready applications — from scalable MERN-stack products to GenAI-powered systems, LLM applications, RAG pipelines, tool-using agents, and agentic workflows built with technologies like LangChain and LangGraph. I have a strong understanding of how modern deep learning and AI systems work and am continuously deep-diving into advanced AI engineering, with a focus on building reliable, useful, and autonomous systems. Beyond writing code, I want to build technology that solves meaningful problems, changes how people interact with software, and ultimately contributes to a better way of how society works.",
   email: "karanpratap1810@gmail.com",
   phone: "+91-7413087071",
   linkedin: "https://linkedin.com/in/karanpratap7",
@@ -50,15 +50,6 @@ export const experiences = [
     color: "#23b5da",
   },
   {
-    title: "Freelance Project - Computer Vision",
-    company: "Chiral",
-    date: "Dec 2025",
-    description: [
-      "Developed a computer vision model using YOLOv8 and OpenCV to automate the detection, classification, and diameter measurement of microscopic organoids.",
-    ],
-    color: "#00cea8",
-  },
-  {
     title: "Frontend Developer Intern",
     company: "SharpCareer Technologies",
     date: "Jun 2024 - Jul 2024",
@@ -66,10 +57,39 @@ export const experiences = [
       "Designed and implemented a dynamic, responsive hotel booking website, enhancing user experience and accessibility using React.js and bootstrap."
     ],
     color: "#f59e0b",
-  }
+  },
+  {
+  title: "Developer",
+  company: "IIChE, IIT Jodhpur",
+  date: "Aug 2023 – Nov 2024",
+  description: [
+    "Helped in designing and deploying the official chapter website using HTML/CSS/JS and the React framework, achieving a 50-point improvement in Google Lighthouse performance.",
+    "Led UI/UX implementation and feature rollouts for chapter events, delivering a responsive, mobile-friendly platform that increased student engagement.",
+    "Onboarded and mentored junior chapter developers on React component design and Git workflows to support ongoing site maintenance.",
+  ],
+  color: "#c084fc",
+},
 ];
 
 export const projects = [
+    {
+    name: "PersonaShift – AI-Powered Interview & Career Simulation Platform",
+    description:
+      "Architected a full-stack AI interview simulation platform featuring real-time transcript streaming, adaptive interviewer personas, speech-based interactions, and post-session performance analytics. Implemented secure authentication and user management with Google OAuth 2.0, email OTP verification, JWT-based authorization, bcrypt password hashing, and Supabase PostgreSQL with role-based access control. Developed an asynchronous ATS resume-parsing and semantic evaluation pipeline using BullMQ, Redis, pdf-parse, and local transformer embedding models to enable scalable background processing and automated resume analysis.",
+    tags: ["React.js", "Node.js", "Supabase", "OAuth 2.0", "BullMQ", "Redis"],
+    github: about.github,
+    live: about.github,
+    gradient: "from-violet-600 to-fuchsia-500",
+  },
+  {
+    name: "AI Dev Team – Autonomous Multi-Agent Software Generation Platform",
+    description:
+      "Architected a multi-agent orchestration pipeline using LangGraph, Google Gemini, and Docker to autonomously convert natural-language requirements into deployed, full-stack applications end-to-end. Designed a 5-stage architecture agent and deterministic cross-validator performing schema, API, and dependency integrity checks with zero LLM cost, eliminating false-positive validation loops and cutting redundant model calls by 60%. Built a self-correcting code generation loop (Coder → Reviewer → Executor → Debugger) with tiered failure escalation and git-based rollback, enabling autonomous bug resolution across generated projects without human intervention.",
+    tags: ["LangGraph", "Google Gemini", "Docker", "Multi-Agent"],
+    github: about.github,
+    live: about.github,
+    gradient: "from-amber-500 to-rose-500",
+  },
   {
     name: "CodeBulb – AI Pilot for VS Code",
     description:

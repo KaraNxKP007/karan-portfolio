@@ -159,3 +159,11 @@ img, canvas, svg {
   border-color: #915EFF !important;
   outline: none;
 }
+
+.kp-modal-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.kp-modal-scroll::-webkit-scrollbar {
+  display: none;
+}

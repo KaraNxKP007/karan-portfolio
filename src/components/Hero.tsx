@@ -153,7 +153,7 @@ const Hero = () => {
                 </p>
 
                 <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginBottom: "24px" }}>
-                  {["IIT Jodhpur 26 Graduate"].map((b) => (
+                  {["IITJ'26 Graduate · Building AI-Powered Products"].map((b) => (
                     <span key={b} style={{ color: "#aaa6c3", fontSize: "12px", display: "flex", alignItems: "center", gap: "5px" }}>
                       <span style={{ color: "#915EFF" }}>▸</span> {b}
                     </span>

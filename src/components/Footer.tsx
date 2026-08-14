@@ -70,10 +70,10 @@ const Footer = () => {
 
           <div>
             <p style={{ color: "#ffffff", fontWeight: 800, fontSize: "18px", marginBottom: "4px" }}>
-              Interested in working together?
+              Have a problem worth building?
             </p>
             <p style={{ color: "#aaa6c3", fontSize: "14px" }}>
-              View or download my resume — always up to date.
+              I'm open to software engineering and AI engineering opportunities.
             </p>
           </div>
 
@@ -152,7 +152,7 @@ const Footer = () => {
                 <p style={{ color: "#ffffff", fontWeight: 800, fontSize: "15px", lineHeight: 1.2 }}>
                   Karan Pratap Singh Rathore
                 </p>
-                <p style={{ color: "#915EFF", fontSize: "12px" }}>IIT Jodhpur Graduate · 2022–2026</p>
+                <p style={{ color: "#915EFF", fontSize: "12px" }}>Software Engineer building software products with AI.</p>
               </div>
             </div>
 

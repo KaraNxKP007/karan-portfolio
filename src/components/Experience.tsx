@@ -2,7 +2,7 @@ import { experiences } from "../constants";
 
 const Experience = () => {
   return (
-    <section id="experience" style={{ backgroundColor: "#050816", padding: "80px 0" }}>
+    <section id="experience" style={{ backgroundColor: "#050816", padding: "80px 0"}}>
       <div style={{ maxWidth: "80rem", margin: "0 auto", padding: "0 24px" }}>
 
         <p style={{ color: "#aaa6c3", fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "8px" }}>
@@ -100,7 +100,7 @@ const Experience = () => {
         </div>
 
         {/* Education */}
-        <div style={{ marginTop: "72px" }}>
+        <div style={{ marginTop: "90px"}}>
           <p style={{ color: "#aaa6c3", fontSize: "14px", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "8px" }}>
             Academic Background
           </p>

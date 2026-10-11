@@ -77,8 +77,8 @@ export const projects = [
     description:
       "Architected a full-stack AI interview simulation platform featuring real-time transcript streaming, adaptive interviewer personas, speech-based interactions, and post-session performance analytics. Implemented secure authentication and user management with Google OAuth 2.0, email OTP verification, JWT-based authorization, bcrypt password hashing, and Supabase PostgreSQL with role-based access control. Developed an asynchronous ATS resume-parsing and semantic evaluation pipeline using BullMQ, Redis, pdf-parse, and local transformer embedding models to enable scalable background processing and automated resume analysis.",
     tags: ["React.js", "Node.js", "Supabase", "OAuth 2.0", "BullMQ", "Redis"],
-    github: about.github,
-    live: about.github,
+    github: "https://drive.google.com/file/d/1y_Vaf_lfMzfbNG_6BkyIvjQ6nI5UMnOh/view?usp=sharing",
+    live: "https://drive.google.com/file/d/1y_Vaf_lfMzfbNG_6BkyIvjQ6nI5UMnOh/view?usp=sharing",
     gradient: "from-violet-600 to-fuchsia-500",
   },
   {
